@@ -222,6 +222,16 @@ body.index {
     border: 1px solid var(--light-black);
 }
 
+.form-control:focus {
+    border-color: var(--primary-color1);
+    box-shadow: 0 0 0 .25rem rgba(255, 199, 89, .25);
+}
+
+section.blank {
+    height: calc(100vh - 762px);
+    background-color: var(--dark-black);
+}
+
 @media screen and (max-width: 768px) {
     
 }
