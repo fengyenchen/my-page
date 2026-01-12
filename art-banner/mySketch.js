@@ -1,8 +1,5 @@
 let ball;
 let balls = [];
-let elapsedFrames = 0;
-let bannerHeight;
-
 let colorLists = [
 	[
 		"3d5a80-98c1d9-e0fbfc-ee6c4d-293241".split("-").map(a=>"#"+a),
@@ -20,30 +17,6 @@ let colorLists = [
 ];
 let colorListsId;
 let colorList;
-
-function computeBannerHeight(){
-	return min(400,windowHeight);
-}
-
-function spawnBalls(count){
-	for(let i=0;i<count;i++){
-		let newBall = new Ball(
-			createVector(width/2,height/2),
-			createVector(6,0).rotate(random(2*PI)),
-			createVector(0.3,0).rotate(random(2*PI)),
-			random(200,500)
-		);
-		balls.push(newBall);
-	}
-}
-
-function resetSketch(){
-	balls = [];
-	colorList = random(colorLists[colorListsId]);
-	elapsedFrames = 0;
-	background(0);
-	spawnBalls(100);
-}
 
 class Ball{
 	constructor(p,v,a,r,color){
@@ -69,8 +42,7 @@ class Ball{
 }
 
 function setup() {
-	bannerHeight = computeBannerHeight();
-	createCanvas(windowWidth,bannerHeight);
+	createCanvas(windowWidth,400);
 	background(0);
 
 	if (random()<0.2){
@@ -78,13 +50,20 @@ function setup() {
 	}else{
 		colorListsId = 1;
 	}
-
-	resetSketch();
+	colorList = random(colorLists[colorListsId]);
+	
+	for(let i=0;i<100;i++){
+		let newBall = new Ball(
+			createVector(width/2,height/2),
+			createVector(6,0).rotate(random(2*PI)),
+			createVector(0.3,0).rotate(random(2*PI)),
+			random(200,500)
+		);
+		balls.push(newBall);
+	}
 }
 
 function draw() {
-	elapsedFrames++;
-
 	for(let i=0;i<balls.length;i++){
 		balls[i].draw();
 		balls[i].update();
@@ -92,13 +71,22 @@ function draw() {
 	
 	balls=balls.filter(ball=>ball.r>15);
 	
-	if(elapsedFrames<30){
+	if(frameCount%1==0 && frameCount<30){
 		colorList = random(colorLists[colorListsId]);
-		spawnBalls(100);
+		
+		for(let i=0;i<100;i++){
+			let newBall = new Ball(
+				createVector(width/2,height/2),
+				createVector(6,0).rotate(random(2*PI)),
+				createVector(0.3,0).rotate(random(2*PI)),
+				random(200,500)
+			);
+			balls.push(newBall);
+		}
 	}
 
 	// 背景
-	if(elapsedFrames<5){
+	if(frameCount<5){
 		
 			noFill();
 			stroke(random(180,255));
@@ -113,7 +101,6 @@ function draw() {
 }
 
 function windowResized() {
-	bannerHeight = computeBannerHeight();
-	resizeCanvas(windowWidth,bannerHeight);
-	resetSketch();
+	resizeCanvas(windowWidth,400);
+	background(0);
 }
