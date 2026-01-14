@@ -235,6 +235,20 @@ body.index {
     opacity: 1;
 }
 
+/* NFT */
+
+.nft .card-title {
+    color: var(--dark-blue);
+}
+
+.nft .card {
+    transition: 0.3s;
+}
+
+.nft .card:hover {
+    border: solid 1px var(--primary-color1);
+}
+
 /* CONTACT */
 
 #contact-form button {
