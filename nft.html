@@ -69,26 +69,11 @@
 
         // 獲取圖片 URL
         function getImageUrl(token) {
-            // 優先使用 display_uri，其次是 thumbnail_uri
-            if (token.display_uri) {
-                // 處理 IPFS URI
-                if (token.display_uri.startsWith('ipfs://')) {
-                    const ipfsHash = token.display_uri.replace('ipfs://', '');
-                    return `https://ipfs.io/ipfs/${ipfsHash}`;
-                }
-                return token.display_uri;
-            }
+            // 優先使用 Objkt 的官方 CDN (已經緩存了圖片)
+            // display_uri 通常指向原始內容，但 Objkt CDN 更可靠
+            const objktUrl = `https://assets.objkt.media/file/assets-003/${token.fa_contract}/${token.token_id}/thumb288`;
 
-            if (token.thumbnail_uri) {
-                if (token.thumbnail_uri.startsWith('ipfs://')) {
-                    const ipfsHash = token.thumbnail_uri.replace('ipfs://', '');
-                    return `https://ipfs.io/ipfs/${ipfsHash}`;
-                }
-                return token.thumbnail_uri;
-            }
-
-            // 備用：使用 objkt CDN
-            return `https://assets.objkt.media/file/assets-003/${token.fa_contract}/${token.token_id}/thumb288`;
+            return objktUrl;
         }
 
         // 創建 NFT 卡片
@@ -101,6 +86,8 @@
             const date = formatDate(token.timestamp);
             const editions = token.supply ? `${token.supply} editions` : '';
             const imgUrl = getImageUrl(token);
+
+            console.log('NFT:', title, 'display_uri:', token.display_uri, 'thumbnail_uri:', token.thumbnail_uri, '最終圖片URL:', imgUrl);
 
             // 判斷平台
             let platformUrl = `https://objkt.com/tokens/${token.fa_contract}/${token.token_id}`;
@@ -126,7 +113,7 @@
                                 class="nft-img col-sm-12 col-md-5 col-lg-3" 
                                 alt="${title}"
                                 loading="lazy"
-                                onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22288%22 height=%22288%22%3E%3Crect width=%22288%22 height=%22288%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2220%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22%23999%22%3E${encodeURIComponent(title)}%3C/text%3E%3C/svg%3E';">
+                                onerror="handleImageError(this, '${token.fa_contract}', '${token.token_id}')">
                             <div class="card-body col-sm-12 col-md-7 col-lg-9">
                                 <h5 class="card-title">${title}</h5>
                                 <small class="card-text text-muted">
@@ -141,6 +128,22 @@
             `;
 
             return col;
+        }
+
+        // 處理圖片加載失敗
+        function handleImageError(img, contract, tokenId) {
+            console.log('圖片加載失敗:', img.src, '嘗試備用方案');
+            // 嘗試 Objkt CDN
+            const backupUrl = `https://assets.objkt.media/file/assets-003/${contract}/${tokenId}/thumb288`;
+            if (img.src !== backupUrl) {
+                img.src = backupUrl;
+                img.onerror = () => {
+                    console.log('備用方案也失敗，使用佔位圖');
+                    img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22288%22 height=%22288%22%3E%3Crect width=%22288%22 height=%22288%22 fill=%22%23f0f0f0%22/%3E%3C/svg%3E';
+                };
+            } else {
+                img.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22288%22 height=%22288%22%3E%3Crect width=%22288%22 height=%22288%22 fill=%22%23f0f0f0%22/%3E%3C/svg%3E';
+            }
         }
 
         // 從 Objkt API 載入 NFT
