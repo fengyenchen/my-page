@@ -1,0 +1,146 @@
+// OpenProcessing 作品
+const openProcessingArtworks = [
+    {
+        sketchId: "2853824",
+        title: "Slices of Midnight",
+        date: "2026/01/22",
+        thumbnailHash: "20251227015946"
+    },
+    {
+        sketchId: "2850331",
+        title: "112358-OXOOX",
+        date: "2026/01/18",
+        thumbnailHash: "20260115123626"
+    },
+    {
+        sketchId: "2848595",
+        title: "Becoming",
+        date: "2026/01/15",
+        thumbnailHash: "20260115123626"
+    },
+    {
+        sketchId: "2845160",
+        title: "The Chaos Carnival",
+        date: "2026/01/12",
+        thumbnailHash: "20251227015946"
+    },
+    {
+        sketchId: "2832214",
+        title: "I am a little monster",
+        date: "2025/12/21",
+        thumbnailHash: "20251227015946"
+    },
+    {
+        sketchId: "2817322",
+        title: "Mosaic Portrait",
+        date: "2025/12/05",
+        thumbnailHash: "20251204114959"
+    },
+    {
+        sketchId: "2820466",
+        title: "Pop Art Portrait2",
+        date: "2025/12/08",
+        thumbnailHash: "20251204114959"
+    },
+    {
+        sketchId: "2814256",
+        title: "Pop Art Portrait",
+        date: "2025/12/03",
+        thumbnailHash: "20251204114959"
+    },
+    {
+        sketchId: "2793879",
+        title: "Mandala of Elements",
+        date: "2025/11/16",
+        thumbnailHash: "20251116094142"
+    },
+    {
+        sketchId: "2782260",
+        title: "Life",
+        date: "2025/11/06",
+        thumbnailHash: "20251107150517"
+    },
+    {
+        sketchId: "2775142",
+        title: "Sunflower",
+        date: "2025/10/31",
+        thumbnailHash: "20251031065926"
+    },
+    {
+        sketchId: "2752444",
+        title: "Coal Balls are talking",
+        date: "2025/10/13",
+        thumbnailHash: "20251013073126"
+    },
+    {
+        sketchId: "2737712",
+        title: "Ripple",
+        date: "2025/09/28",
+        thumbnailHash: "20250928065443"
+    },
+    {
+        sketchId: "2729913",
+        title: "The Mystic Score",
+        date: "2025/09/20",
+        thumbnailHash: "20250920063359"
+    },
+    {
+        sketchId: "2723191",
+        title: "Cluster",
+        date: "2025/09/15",
+        thumbnailHash: "20250915090333"
+    },
+    {
+        sketchId: "2723146",
+        title: "Blossom",
+        date: "2025/09/15",
+        thumbnailHash: "20250915143832"
+    }
+];
+
+// 生成 OpenProcessing 卡片的函數
+function createOpenProcessingCard(artwork) {
+    const thumbnailUrl = `https://kyoko.openprocessing.org/thumbnails/visualThumbnail${artwork.sketchId}@2x.jpg?hash=${artwork.thumbnailHash}`;
+    const sketchUrl = `https://openprocessing.org/sketch/${artwork.sketchId}`;
+
+    return `
+        <div class="col">
+            <div class="card mb-0">
+                <a href="${sketchUrl}" class="text-decoration-none" target="_blank">
+                    <div class="row position-absolute top-0 g-0 px-3 pt-4 z-index-0">
+                        <div class="col-6 pe-0">
+                            <img src="${thumbnailUrl}"
+                                class="art-img art-img-left w-100" alt="${artwork.title}">
+                        </div>
+                        <div class="col-6 ps-0">
+                            <img src="${thumbnailUrl}"
+                                class="art-img art-img-right w-100" alt="${artwork.title}">
+                        </div>
+                    </div>
+                    <img src="/my-page/arts/p5js圖模板.png" class="card-img-top z-index-1" alt="${artwork.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${artwork.title}</h5>
+                        <small class="card-text text-muted">${artwork.date}</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    `.trim();
+}
+
+// 渲染OpenProcessing作品到指定容器
+function renderOpenProcessingArtworks(containerId = 'openprocessing-works') {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    // 生成所有卡片的 HTML
+    const cardsHTML = openProcessingArtworks.map(artwork => createOpenProcessingCard(artwork)).join('\n');
+
+    // 將 OpenProcessing 作品插入到容器開頭（本地作品之前）
+    container.insertAdjacentHTML('afterbegin', cardsHTML);
+}
+
+// 頁面加載完成後渲染
+document.addEventListener('DOMContentLoaded', function () {
+    renderOpenProcessingArtworks();
+});
