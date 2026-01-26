@@ -1,6 +1,12 @@
 // OpenProcessing 作品
 const openProcessingArtworks = [
     {
+        sketchId: "2856309",
+        title: "The Rhythm of Ink Grids",
+        date: "2026/01/26",
+        thumbnailHash: "20260126095552"
+    },
+    {
         sketchId: "2853824",
         title: "Slices of Midnight",
         date: "2026/01/22",
