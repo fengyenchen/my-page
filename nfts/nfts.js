@@ -1,6 +1,14 @@
 // nft 作品
 const nftworks = [
     {
+        link: "https://www.editart.xyz/series/KT1VrK8xoZskhjPvco2NxgPbuzBJDZbYC3BL",
+        title: "Static Echoes",
+        platform: "EditArt",
+        date: "January 28 2026",
+        editions: "24",
+        describtion: "Genuary 28 2026 - No libraries, no canvas, only HTML elements."
+    },
+    {
         link: "https://www.editart.xyz/series/KT1VqhnwtcrJ7z5TgccGJ6KUc41w4wA7pjd9",
         title: "The Rhythm of Ink Grids",
         platform: "EditArt",
