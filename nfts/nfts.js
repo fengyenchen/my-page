@@ -1,6 +1,14 @@
 // nft 作品
 const nftworks = [
     {
+        link: "https://www.editart.xyz/series/KT1X61CYzY6o98nBCHQR2iKx3A9FjSQ8Zg5o",
+        title: "SYSTEM_FAILURE SUCCESSFUL",
+        platform: "EditArt",
+        date: "January 30 2026",
+        editions: "24",
+        describtion: "Genuary 30 2026 - Its not a bug, its a feature."
+    },
+    {
         link: "https://www.editart.xyz/series/KT1VrK8xoZskhjPvco2NxgPbuzBJDZbYC3BL",
         title: "Static Echoes",
         platform: "EditArt",
