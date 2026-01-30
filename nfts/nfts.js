@@ -17,6 +17,14 @@ const nftworks = [
         describtion: "Genuary 28 2026 - No libraries, no canvas, only HTML elements."
     },
     {
+        link: "https://www.editart.xyz/series/KT1FHGvUu8GbCyfbEUhmkK4g46Tgowmzfwsc",
+        title: "112358-OXOOX",
+        platform: "EditArt",
+        date: "January 27 2026",
+        editions: "128",
+        describtion: "This work captures the intersection of rhythmic growth and chaotic diffusion. The repeating digits at the center are more than just a sequence—they are an echoing monologue within the digital world. Meanwhile, the binary codes hidden in the corners serve as the unique digital fingerprints for each individual piece."
+    },
+    {
         link: "https://www.editart.xyz/series/KT1VqhnwtcrJ7z5TgccGJ6KUc41w4wA7pjd9",
         title: "The Rhythm of Ink Grids",
         platform: "EditArt",
