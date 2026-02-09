@@ -1,6 +1,14 @@
 // nft 作品
 const nftworks = [
     {
+        link: "https://www.editart.xyz/series/KT1Ty6McGVLZBzZdNxcRUkFqaSB3bE3uwAMd",
+        title: "Void",
+        platform: "EditArt",
+        date: "February 8 2026",
+        editions: "48",
+        describtion: "Void uses shattered geometry to frame the void, turning the absence into a presence left behind by broken order."
+    },
+    {
         link: "https://www.editart.xyz/series/KT1X61CYzY6o98nBCHQR2iKx3A9FjSQ8Zg5o",
         title: "SYSTEM_FAILURE SUCCESSFUL",
         platform: "EditArt",

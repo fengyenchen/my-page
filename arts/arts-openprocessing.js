@@ -1,6 +1,12 @@
 // OpenProcessing 作品
 const openProcessingArtworks = [
     {
+        sketchId: "2866742",
+        title: "Void",
+        date: "2026/02/08",
+        thumbnailHash: "20260208065811"
+    },
+    {
         sketchId: "2860071",
         title: "SYSTEM_FAILURE: SUCCESSFUL",
         date: "2026/01/30",
