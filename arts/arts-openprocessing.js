@@ -1,130 +1,115 @@
 // OpenProcessing 作品
 const openProcessingArtworks = [
     {
+        sketchId: "2866716",
+        title: "Digital Signs",
+        date: "2026/02/07"
+    },
+    {
         sketchId: "2866742",
         title: "Void",
-        date: "2026/02/08",
-        thumbnailHash: "20260208065811"
+        date: "2026/02/08"
     },
     {
         sketchId: "2860071",
         title: "SYSTEM_FAILURE: SUCCESSFUL",
-        date: "2026/01/30",
-        thumbnailHash: "20260130065811"
+        date: "2026/01/30"
     },
     {
         sketchId: "2858540",
         title: "Static Echoes",
-        date: "2026/01/28",
-        thumbnailHash: "20260128122818"
+        date: "2026/01/28"
     },
     {
         sketchId: "2856309",
         title: "The Rhythm of Ink Grids",
-        date: "2026/01/26",
-        thumbnailHash: "20260126095552"
+        date: "2026/01/26"
     },
     {
         sketchId: "2853824",
         title: "Slices of Midnight",
-        date: "2026/01/22",
-        thumbnailHash: "20251227015946"
+        date: "2026/01/22"
     },
     {
         sketchId: "2850331",
         title: "112358-OXOOX",
-        date: "2026/01/18",
-        thumbnailHash: "20260115123626"
+        date: "2026/01/18"
     },
     {
         sketchId: "2848595",
         title: "Becoming",
-        date: "2026/01/15",
-        thumbnailHash: "20260115123626"
+        date: "2026/01/15"
     },
     {
         sketchId: "2845160",
         title: "The Chaos Carnival",
-        date: "2026/01/12",
-        thumbnailHash: "20251227015946"
+        date: "2026/01/12"
     },
     {
         sketchId: "2832214",
         title: "I am a little monster",
-        date: "2025/12/21",
-        thumbnailHash: "20251227015946"
+        date: "2025/12/21"
     },
     {
         sketchId: "2817322",
         title: "Mosaic Portrait",
-        date: "2025/12/05",
-        thumbnailHash: "20251204114959"
+        date: "2025/12/05"
     },
     {
         sketchId: "2820466",
         title: "Pop Art Portrait2",
-        date: "2025/12/08",
-        thumbnailHash: "20251204114959"
+        date: "2025/12/08"
     },
     {
         sketchId: "2814256",
         title: "Pop Art Portrait",
-        date: "2025/12/03",
-        thumbnailHash: "20251204114959"
+        date: "2025/12/03"
     },
     {
         sketchId: "2793879",
         title: "Mandala of Elements",
-        date: "2025/11/16",
-        thumbnailHash: "20251116094142"
+        date: "2025/11/16"
     },
     {
         sketchId: "2782260",
         title: "Life",
-        date: "2025/11/06",
-        thumbnailHash: "20251107150517"
+        date: "2025/11/06"
     },
     {
         sketchId: "2775142",
         title: "Sunflower",
-        date: "2025/10/31",
-        thumbnailHash: "20251031065926"
+        date: "2025/10/31"
     },
     {
         sketchId: "2752444",
         title: "Coal Balls are talking",
-        date: "2025/10/13",
-        thumbnailHash: "20251013073126"
+        date: "2025/10/13"
     },
     {
         sketchId: "2737712",
         title: "Ripple",
-        date: "2025/09/28",
-        thumbnailHash: "20250928065443"
+        date: "2025/09/28"
     },
     {
         sketchId: "2729913",
         title: "The Mystic Score",
-        date: "2025/09/20",
-        thumbnailHash: "20250920063359"
+        date: "2025/09/20"
     },
     {
         sketchId: "2723191",
         title: "Cluster",
-        date: "2025/09/15",
-        thumbnailHash: "20250915090333"
+        date: "2025/09/15"
     },
     {
         sketchId: "2723146",
         title: "Blossom",
-        date: "2025/09/15",
-        thumbnailHash: "20250915143832"
+        date: "2025/09/15"
     }
 ];
 
 // 生成 OpenProcessing 卡片的函數
 function createOpenProcessingCard(artwork) {
-    const thumbnailUrl = `https://kyoko.openprocessing.org/thumbnails/visualThumbnail${artwork.sketchId}@2x.jpg?hash=${artwork.thumbnailHash}`;
+    const thumbnailUrl = `https://kyoko.openprocessing.org/thumbnails/visualThumbnail${artwork.sketchId}@2x.jpg`;
     const sketchUrl = `https://openprocessing.org/sketch/${artwork.sketchId}`;
 
     return `
