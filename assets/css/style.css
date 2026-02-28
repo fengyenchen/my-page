@@ -24,12 +24,13 @@
 }
 
 ::selection {
-	background: var(--light-black);
-	color: white;
+    background: var(--light-black);
+    color: white;
 }
+
 ::-moz-selection {
-	background: var(--light-black);
-	color: white;
+    background: var(--light-black);
+    color: white;
 }
 
 h1, h2 {
@@ -81,10 +82,12 @@ nav .nav-link:hover {
     width: 35px;
     transform: translate(-50%, -50%) rotate(45deg);
 }
+
 .navbar-toggler .line2-active {
     opacity: 0;
     width: 0;
 }
+
 .navbar-toggler .line3-active {
     width: 35px;
     transform: translate(-50%, -50%) rotate(-45deg);
@@ -112,9 +115,11 @@ footer, footer * {
 footer p {
     margin: 0;
 }
+
 .email {
     font-size: 14px;
 }
+
 .email a {
     text-decoration: none;
 }
@@ -126,6 +131,7 @@ footer ul {
     padding: 0;
     margin: 15px 0 5px 0;
 }
+
 footer ul li i {
     margin: 0 8px;
 }
@@ -173,6 +179,26 @@ body.index {
 .art-work-container p {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.arts-filter .btn {
+    color: var(--dark-black);
+    background-color: #fff;
+    border-color: var(--dark-black);
+    border-radius: 3px;
+    transform: skewX(-6deg);
+    padding: 5px 15px;
+    transition: 0.5s;
+}
+
+.arts-filter .btn.active {
+    color: #fff;
+    background-color: var(--dark-black);
+}
+
+.arts-filter .btn:hover {
+    color: #fff;
+    background-color: var(--dark-black);
 }
 
 /* PHOTODRAPHY */
@@ -272,9 +298,7 @@ section.blank {
     background-color: var(--dark-black);
 }
 
-@media screen and (max-width: 768px) {
-    
-}
+@media screen and (max-width: 768px) {}
 
 @media screen and (max-width: 480px) {
     h1, h2, h3, h4, p {

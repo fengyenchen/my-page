@@ -28,15 +28,24 @@
     </header>
 
     <main class="container py-4">
+        <div class="arts-filter d-flex justify-content-center mb-4 gap-3">
+            <div class="btn-group">
+                <button type="button" class="btn active" data-filter="all">all</button>
+                <button type="button" class="btn" data-filter="openprocessing">p5.js / processing</button>
+                <button type="button" class="btn" data-filter="other">other</button>
+            </div>
+        </div>
+
         <div class="art-work row row-cols-1 row-cols-md-3 g-3" id="openprocessing-works">
             <!-- OpenProcessing 作品 - 由 JavaScript 動態生成 -->
+
             <!-- 本地作品 -->
-            <div class="col">
+            <div class="col art-item" data-category="other">
                 <div class="card mb-0">
                     <a href="/my-page/arts/Digital Pulse/Digital Pulse.html" class="text-decoration-none"
                         target="_blank">
                         <img src="/my-page/arts/Digital Pulse/Digital Pulse.png" class="card-img-top"
-                            alt="這是一組探討數位化人性與自我認同的創作。以赫胥黎《美麗新世界》為靈感，">
+                            alt="跳動數字與幾何磚瓦的色彩律動。">
                         <div class="card-body">
                             <h5 class="card-title">Digital Pulse</h5>
                             <small class="card-text text-muted">2025/08</small>
@@ -44,11 +53,10 @@
                     </a>
                 </div>
             </div>
-            <div class="col">
+            <div class="col art-item" data-category="other">
                 <div class="card mb-0">
                     <a href="/my-page/arts/Inner Demon/Inner Demon.html" class="text-decoration-none" target="_blank">
-                        <img src="/my-page/arts/Inner Demon/Inner Demon.png" class="card-img-top"
-                            alt="這是一組以克蘇魯神話為靈感的黑暗奇幻創作。">
+                        <img src="/my-page/arts/Inner Demon/Inner Demon.png" class="card-img-top" alt="一場在巨獸腹中的冒險。">
                         <div class="card-body">
                             <h5 class="card-title">Inner Demon</h5>
                             <small class="card-text text-muted">2025/08</small>
@@ -56,7 +64,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col">
+            <div class="col art-item" data-category="other">
                 <div class="card mb-0">
                     <a href="/my-page/arts/Daily Life in the Park/Daily Life in the Park.html"
                         class="text-decoration-none" target="_blank">
@@ -69,7 +77,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col">
+            <div class="col art-item" data-category="other">
                 <div class="card mb-0">
                     <a href="/my-page/arts/A Promise with Time/A Promise with Time.html" class="text-decoration-none"
                         target="_blank">

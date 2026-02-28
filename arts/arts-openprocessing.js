@@ -1,14 +1,14 @@
 // OpenProcessing 作品
 const openProcessingArtworks = [
     {
-        sketchId: "2866716",
-        title: "Digital Signs",
-        date: "2026/02/07"
-    },
-    {
         sketchId: "2866742",
         title: "Void",
         date: "2026/02/08"
+    },
+    {
+        sketchId: "2866716",
+        title: "Digital Signs",
+        date: "2026/02/07"
     },
     {
         sketchId: "2860071",
@@ -113,7 +113,7 @@ function createOpenProcessingCard(artwork) {
     const sketchUrl = `https://openprocessing.org/sketch/${artwork.sketchId}`;
 
     return `
-        <div class="col">
+        <div class="col art-item" data-category="openprocessing">
             <div class="card mb-0">
                 <a href="${sketchUrl}" class="text-decoration-none" target="_blank">
                     <div class="row position-absolute top-0 g-0 px-3 pt-4 z-index-0">
@@ -149,7 +149,35 @@ function renderOpenProcessingArtworks(containerId = 'openprocessing-works') {
     container.insertAdjacentHTML('afterbegin', cardsHTML);
 }
 
+function setupArtCategoryFilter() {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const artItems = document.querySelectorAll('.art-item');
+
+    if (!filterButtons.length || !artItems.length) return;
+
+    function applyFilter(filterValue) {
+        artItems.forEach((item) => {
+            const category = item.dataset.category;
+            const isVisible = filterValue === 'all' || category === filterValue;
+            item.style.display = isVisible ? '' : 'none';
+        });
+    }
+
+    filterButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const filterValue = button.dataset.filter || 'all';
+
+            filterButtons.forEach((btn) => btn.classList.remove('active'));
+            button.classList.add('active');
+            applyFilter(filterValue);
+        });
+    });
+
+    applyFilter('all');
+}
+
 // 頁面加載完成後渲染
 document.addEventListener('DOMContentLoaded', function () {
     renderOpenProcessingArtworks();
+    setupArtCategoryFilter();
 });
